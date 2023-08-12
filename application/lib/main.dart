@@ -1,3 +1,4 @@
+import 'package:application/counter.dart';
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {
@@ -9,6 +10,36 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return const MaterialApp(
+      home: CounterScreen(),
+    );
+  }
+}
+
+class CounterScreen extends StatefulWidget {
+  const CounterScreen({super.key});
+
+  @override
+  State<CounterScreen> createState() => _CounterScreenState();
+}
+
+class _CounterScreenState extends State<CounterScreen> {
+  final CounterState _counterState = CounterState();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: Center(
+        child: Text("The Value Of Counter Is ${_counterState.counter}"),
+      )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+         setState(() {
+            _counterState.increment();
+         });
+        },
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }
