@@ -22,7 +22,9 @@ class UserHttpService {
   Future<User> getUserData() async {
     try {
       final userDataResponse = await _client.get(Uri.parse(url));
-
+      if (userDataResponse.statusCode != 200) {
+        throw Exception();
+      }
       return User.fromMap(
           data: json.decode(userDataResponse.body) as Map<String, dynamic>);
     } catch (e) {
