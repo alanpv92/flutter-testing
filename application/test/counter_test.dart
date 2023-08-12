@@ -12,7 +12,7 @@ void main() {
     //testing
 
     test('inital value of counter is 0', () {
-      final testVal = _ounterState.counter;
+      final testVal = counterState.counter;
       expect(testVal, 0); //comapre the actual and expected value
     });
 
