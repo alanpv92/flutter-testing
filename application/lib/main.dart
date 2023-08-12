@@ -1,7 +1,12 @@
 import 'package:application/counter.dart';
+import 'package:application/user.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main(List<String> args) {
+  UserHttpService(
+    client: http.Client()
+  ).getUserData();
   runApp(const MyApp());
 }
 
@@ -34,9 +39,9 @@ class _CounterScreenState extends State<CounterScreen> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-         setState(() {
+          setState(() {
             _counterState.increment();
-         });
+          });
         },
         child: const Icon(Icons.add),
       ),
