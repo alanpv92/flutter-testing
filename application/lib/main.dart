@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 void main(List<String> args) {
-  UserHttpService(
-    client: http.Client()
-  ).getUserData();
+  UserHttpService(client: http.Client()).getUserData();
   runApp(const MyApp());
 }
 
@@ -35,7 +33,7 @@ class _CounterScreenState extends State<CounterScreen> {
     return Scaffold(
       body: SafeArea(
           child: Center(
-        child: Text("The Value Of Counter Is ${_counterState.counter}"),
+        child: Text("${_counterState.counter}"),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
